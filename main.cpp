@@ -9,22 +9,6 @@
 
 using namespace std;
 
-// class Space{ 
-//   private:
-  
-  
-//   public:
-//   bool look_for_nl(std::istream& is) {
-//       for (char = d is.get(); is; d = is.get()){
-//         if (d == '\n') return d;
-//         if(!isspace(d)){
-//           is.putback(d);
-//         return ' ';
-//         }
-//       }
-//     return '\n';
-//     };
-// };
 int seedIncrement = 0;
 enum winningHands {
 NONE, PAIR, TWOPAIR, THREE, STRAIGHT, FLUSH, HOUSE, FOUR, STRFLUSH
@@ -226,10 +210,7 @@ vector<Card> cards;
 
 public:
 Deck(){
-  // string curr_suit;
-  // string curr_card;
   for(int i = 0; i < 4 ; i++ ){
-    // curr_suit = this->suits[i];
     for (int j = 2; j < 15; j++){
       this->cards.push_back(Card(j, i));
     }
@@ -319,20 +300,6 @@ void printHands() {
     this->players[i].printHand();
   }
 }
-
-// void printB() {
-//   this->cards.push_back(this->deck->getC());
-//   this->b->getCard(this->deck->getCard());
-//   this->cards.push_back(this->deck->getC());
-//   this->b->getCard(this->deck->getCard());
-//   this->cards.push_back(this->deck->getC());
-//   this->b->getCard(this->deck->getCard());
-//   this->cards.push_back(this->deck->getC());
-//   this->b->getCard(this->deck->getCard());
-//   this->cards.push_back(this->deck->getC());
-//   this->b->getCard(this->deck->getCard());
-//   this->b->printBoard();
-// }
 void printB() {
   this->b->printBoard();
 }
@@ -365,9 +332,6 @@ void setPlayers(vector <Player> plrs) {
     this->players.push_back(p);
   }
 }
-// void nextTurn(bool first) {
-//   this->
-// }
 
 
 void showHand(int pl_num) {
@@ -552,11 +516,8 @@ int main() {
       g->getB()->getCard(g->getDeck()->getCard());
       g->checkAllHands();
       string turnHistory = "";
-      // for (auto &currPlayer : g->getPlayers()) { // This loop iterates for each player in the game's players field, and the player's actions of their turn are made within. *The players field should be kept up to date such that only active players are in the vector on the start of the increment.
         
         g->betting();
-        // add the player's action of this turn to the turnHistory string in sentence form
-      //}
        if (g->isOver()) break; 
       }
       if (!g->isOver()) {
