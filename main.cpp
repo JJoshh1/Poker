@@ -399,8 +399,11 @@ void betting() {
       cout << this->players[i].getName() << " would you like to raise(0) or check(1)?" << endl;
       cin >> option;
       if (option == "0") {
+        while(true) {
         cout << "Enter the amount: " << endl;
         cin >> raise;
+        if (raise > 0 && raise <= this->players[i].getBalance()) break;
+        }
         amnt_raised += raise; 
         this->pot += raise;
         increased = true;
@@ -412,8 +415,11 @@ void betting() {
       cout << this->players[i].getName() << " would you like to raise(0) or call(1) or fold(2) to $" << amnt_raised << " ?" << endl;
       cin >> option;
       if (option == "0") {
+        while(true) {
         cout << "Enter the amount: " << endl;
         cin >> raise;
+        if (raise > 0 && raise <= this->players[i].getBalance()) break;
+        }
         amnt_raised += raise; 
         this->pot += amnt_raised;
         this->players[i].loseMoney(amnt_raised);
